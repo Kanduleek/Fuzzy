@@ -38,8 +38,8 @@ def tip_average(x):
 
 
 if __name__ == "__main__":
-	food = int(raw_input("Podaj ocene jedzenia:"))
-	service = int(raw_input("Podaj ocene obslugi:"))
+	food = float(raw_input("Podaj ocene jedzenia:"))
+	service = float(raw_input("Podaj ocene obslugi:"))
 	high_score = max(quality_good(food), quality_good(service))
 
 	low_score = min(quality_bad(food), quality_bad(service))
@@ -48,7 +48,7 @@ if __name__ == "__main__":
 
 	n = 0
 	d = 0
-	for x in xrange(0,10, 1):
+	for x in xrange(0,20, 1):
 		if (high_score == 1):
 			n += 20 * high_score
 			d += high_score
@@ -60,7 +60,10 @@ if __name__ == "__main__":
 			n += x * degree
 			d += degree
 
-	output = float(n)/float(d)
+	if float(d)==0:
+		print "Nie mozna dzielic przez 0!"
+	else:
+		output = float(n)/float(d)
 if food > 10 or service > 10:
 	print "Liczba musi miescic sie w przedziale 0-10"
 else:
