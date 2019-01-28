@@ -37,9 +37,7 @@ def tip_average(x):
 		return 1 - (float(abs(10-x))/5.0)
 
 
-if __name__ == "__main__":
-	food = float(raw_input("Podaj ocene jedzenia:"))
-	service = float(raw_input("Podaj ocene obslugi:"))
+def count(food, service):
 	high_score = max(quality_good(food), quality_good(service))
 
 	low_score = min(quality_bad(food), quality_bad(service))
@@ -64,7 +62,13 @@ if __name__ == "__main__":
 		print "Nie mozna dzielic przez 0!"
 	else:
 		output = float(n)/float(d)
-if food > 10 or service > 10:
-	print "Liczba musi miescic sie w przedziale 0-10"
-else:
-	print "Napiwek wynosi: %.2f procent" % output
+		print "Napiwek wynosi: %.2f procent" % output
+
+if __name__ == "__main__":
+	food = float(raw_input("Podaj ocene jedzenia:"))
+	service = float(raw_input("Podaj ocene obslugi:"))
+	if food > 10 or food < 0 or service > 10 or service < 0:
+		print "Liczba musi miescic sie w przedziale 0-10"
+	else:
+		count(food,service)
+
